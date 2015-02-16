@@ -19,8 +19,8 @@ import com.pi4j.io.gpio.event.GpioPinListenerDigital;
 import com.pi4j.io.gpio.event.PinEventType;
 
 
-class RaspberryLEDs {
-	public static void main(String[] args) {
+class JavaPi4j {
+	public static void main(String[] args) throws InterruptedException {
 
 		final GpioController gpio = GpioFactory.getInstance();
 		
@@ -36,7 +36,7 @@ class RaspberryLEDs {
 
 		Thread.sleep(3000);
 
-		Thread.toggle();
+		pin.toggle();
 
 		gpio.shutdown();
 	}

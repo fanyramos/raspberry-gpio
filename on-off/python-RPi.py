@@ -15,7 +15,7 @@ import RPi.GPIO as g
 import sys
 
 PIN = int(sys.argv[1])
-DELAY = int(sys.argv[sys.argv.length])
+DELAY = int(sys.argv[len(sys.argv)-1])
 g.setmode(g.BCM)
 g.setup(PIN,g.OUT)
 
