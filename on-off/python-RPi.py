@@ -1,6 +1,7 @@
 def nodelay():
-	g.output(PIN,1)
-	g.output(PIN,0)
+	while True:
+		g.output(PIN,1)
+		g.output(PIN,0)
 
 def delay():
 	import time
