@@ -50,15 +50,15 @@ g.setup(2,g.IN, pull_up_down=g.PUD_UP)
 ####  Outputs ###
 #################
 
-g.setup(21,g.OUT)
-g.setup(20,g.OUT)
-g.setup(16,g.OUT)
-g.setup(26,g.OUT)
+g.setup(7,g.OUT)
+g.setup(8,g.OUT)
+g.setup(25,g.OUT)
+g.setup(24,g.OUT)
 ## msb pins
-g.setup(19,g.OUT)
-g.setup(13,g.OUT)
-g.setup(6,g.OUT)
-g.setup(5,g.OUT)
+g.setup(23,g.OUT)
+g.setup(18,g.OUT)
+g.setup(15,g.OUT)
+g.setup(14,g.OUT)
 
 while True:
 
