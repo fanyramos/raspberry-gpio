@@ -2,7 +2,7 @@ import RPi.GPIO as g
 import sys
 import time
 
-digitalInputs[]
+digitalInputs = []
 
 def pipePins():
   for i in xrange(10):
@@ -68,8 +68,8 @@ g.setup(14,g.OUT)
 while True:
   try:
      if g.input(4) == False:
-     pipePins()
+	pipePins()
 #    time.sleep(0.1)
   except KeyboardInterrupt:
-  g.cleanup()
+    g.cleanup()
 
