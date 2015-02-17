@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "gpio": "~0.2.6",
+    "pi-gpio": "0.0.6"
+  }
+}
