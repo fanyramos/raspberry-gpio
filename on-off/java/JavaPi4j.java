@@ -28,11 +28,12 @@ class JavaPi4j {
 
 		final GpioPinDigitalOutput pin = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_25, "MyLED", PinState.HIGH);
 
-		blinkWithDelay(pin,2000);
+		blinkNoDelay(pin);
 		gpio.shutdown();
 	}
 
 	private static void blinkWithDelay(GpioPinDigitalOutput pin, int delay)  {
+
 
 		while (true) {
 
@@ -48,7 +49,7 @@ class JavaPi4j {
 		}
 	}
 
-	private static void blinkNoDelay(GpioPinDigitalOutput pin, int delay) {
+	private static void blinkNoDelay(GpioPinDigitalOutput pin) {
 
 		while (true) {
 			pin.toggle();

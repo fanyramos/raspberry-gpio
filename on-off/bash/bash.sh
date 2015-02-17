@@ -6,8 +6,6 @@ echo out > direction
 echo 1 > value
 while true
 do
-	sleep 2
 	echo 1 > value
-	sleep 2
 	echo 0 > value
 done
