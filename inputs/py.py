@@ -12,7 +12,7 @@ def pipePins():
   msb5 = g.input(13)
   msb6 = g.input(6)
   msb7 = g.input(5)
-  
+  print "[", msb7, msb6, msb5, msb4, lsb3, lsb2, lsb1, lsb0, "]"
   g.output(7,lsb0)
   g.output(8,lsb1)
   g.output(25,lsb2)
@@ -61,12 +61,11 @@ g.setup(15,g.OUT)
 g.setup(14,g.OUT)
 
 while True:
-
-  if g.input(2) == False:
-    print "Piping"
-    pipePins()
-    time.sleep(0.1)
-
-
-g.cleanup()
+  try:
+     if g.input(2) == False:
+#    print "Piping"Ã
+     pipePins()
+#    time.sleep(0.1)
+  except KeyboardInterrupt:
+  g.cleanup()
 
