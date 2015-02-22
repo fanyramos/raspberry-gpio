@@ -32,7 +32,7 @@ class JavaPi4j {
 		gpio.shutdown();
 	}
 
-	private void blinkWithDelay(GpioPinDigitalOutput pin, int delay)  {
+	private static void blinkWithDelay(GpioPinDigitalOutput pin, int delay)  {
 
 		while (true) {
 
@@ -48,7 +48,7 @@ class JavaPi4j {
 		}
 	}
 
-	private void blinkNoDelay(GpioPinDigitalOutput pin, int delay) {
+	private static void blinkNoDelay(GpioPinDigitalOutput pin, int delay) {
 
 		while (true) {
 			pin.toggle();
