@@ -19,32 +19,37 @@ import com.pi4j.io.gpio.event.GpioPinListenerDigital;
 import com.pi4j.io.gpio.event.PinEventType;
 
 
-class JavaPi4j {
+class RaspberryLEDs {
 	
 	public static void main(String[] args) {
 
 		final GpioController gpio = GpioFactory.getInstance();
 		
-
 		final GpioPinDigitalOutput pin = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_25, "MyLED", PinState.HIGH);
 
-		blinkWithDelay(pin,2000);
+
+
+		Thread.sleep(3000);
+
+		pin.low();
+
+		Thread.sleep(5000);
+
+		pin.toggle();
+
+		Thread.sleep(3000);
+
+		Thread.toggle();
+
 		gpio.shutdown();
 	}
 
-	private void blinkWithDelay(GpioPinDigitalOutput pin, int delay)  {
+
+	private void blinkWithDelay(GpioPinDigitalOutput pin, int delay) {
 
 		while (true) {
-
-			try	{
-				Thread.sleep(delay);
-				pin.toggle();
-			}
-
-			catch (InterruptedException e) {
-				System.out.print("Interrupted Execution Exception ... Cause:\n\n============\n\n" + e.getCause());
-				System.out.print("Interrupted Execution Exception ... Cause:\n\n============\n\n" + e.getStackTrace());
-			}
+			Thread.sleep(delay);
+			pin.toggle();
 		}
 	}
 
@@ -53,6 +58,8 @@ class JavaPi4j {
 		while (true) {
 			pin.toggle();
 		}
-	}	
+	}
+
+
 }
 	
