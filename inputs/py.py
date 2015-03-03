@@ -1,3 +1,7 @@
+import RPi.GPIO as g
+import sys
+import time
+
 def pipePins():
   lsb0 = g.input(21)
   lsb1 = g.input(20)
@@ -9,8 +13,6 @@ def pipePins():
   msb6 = g.input(6)
   msb7 = g.input(5)
   
-  time.sleep(0.3)
-
   g.output(7,lsb0)
   g.output(8,lsb1)
   g.output(25,lsb2)
@@ -61,9 +63,9 @@ g.setup(5,g.OUT)
 while True:
 
   if g.input(2) == False:
-    print "Yiha!, no Yihad"
-    time.sleep(0.2)
-
+    print "Piping"
+    pipePins()
+    time.sleep(0.1)
 
 
 g.cleanup()
