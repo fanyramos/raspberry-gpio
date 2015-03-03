@@ -1,8 +1,8 @@
-import RPi.GPIO as gpio
+import RPi.GPIO as g
 import sys
 import time
 
-gpio.setmode(g.BCM)
+g.setmode(g.BCM)
 
 ## lsb pins
 g.setup(21,g.IN, pull_up_down=g.PUD_DOWN)
