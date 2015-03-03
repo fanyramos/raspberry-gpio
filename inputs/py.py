@@ -42,7 +42,7 @@ g.setup(6,g.IN, pull_up_down=g.PUD_DOWN)
 g.setup(5,g.IN, pull_up_down=g.PUD_DOWN)
 
 
-g..setup(2,g.IN, pull_up_down=g.PUD_UP)
+g.setup(2,g.IN, pull_up_down=g.PUD_UP)
 
 #################
 ####  Outputs ###
