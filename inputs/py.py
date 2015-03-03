@@ -20,7 +20,7 @@ g.setup(5,g.IN, pull_up_down=g.PUD_DOWN)
 
 while True:
   print "[", g.input(21), g.input(20), g.input(16), g.input(26), g.input(19), g.input(13), g.input(6), g.input(5), "]"
-  time.sleep()
+  time.sleep(0.5)
 
-g.cleanup(0.5)
+g.cleanup()
 
