@@ -1,13 +1,26 @@
 import RPi.GPIO as g
+import sys
+from time import sleep
+pin1 = int(sys.argv[1])
+pin2 = int(sys.argv[2])
 
-def pushNotification(pin,value):
-  print pin, value
+def pushNotification(channel):
+  print channel
 
 g.setmode(g.BCM)
-g.setup(2, g.IN, pull_up_down=g.PUD_UP)
+g.setup(pin1,g.OUT)
+g.setup(pin2, g.IN, pull_up_down=g.PUD_DOWN)
+
 try:
-  g.add_interrupt_callback(2, pushNotification, edge='rising',  pull_up_down=g.PUD_OFF, threaded_callback=True, debounce_timeout_ms=None)
-  g.wait_for_interrupts(threaded=True)
+  g.add_event_detect(pin2, g.RISING, callback=pushNotification)
+
+  while True:
+    sleep(0.5)
+    g.output(pin2,g.HIGH)
+    sleep(0.5)
+    g.output(pin2,g.LOW)
+
 except KeyboardInterrupt:
-  g.clean
-g.clean
+  g.cleanup()
+
+g.cleanup()
