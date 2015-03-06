@@ -12,13 +12,13 @@ g.setup(pin1,g.OUT)
 g.setup(pin2, g.IN, pull_up_down=g.PUD_DOWN)
 
 try:
-  g.add_event_detect(pin1, g.RISING, callback=pushNotification)
+  g.add_event_detect(pin2, g.RISING, callback=pushNotification)
 
   while True:
     sleep(0.5)
-    g.output(pin2,g.HIGH)
+    g.output(pin1,g.HIGH)
     sleep(0.5)
-    g.output(pin2,g.LOW)
+    g.output(pin1,g.LOW)
 
 except KeyboardInterrupt:
   g.cleanup()
