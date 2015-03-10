@@ -2,10 +2,10 @@ import RPi.GPIO as g
 import sys
 import time
 
-digitalInputs = []
 
 def pipePins():
-  for i in xrange(10):
+  digitalInputs = []
+  for i in xrange(int(sys.argv[1])):
     lsb0 = g.input(21)
     lsb1 = g.input(20)
     lsb2 = g.input(16)
@@ -73,3 +73,4 @@ while True:
   except KeyboardInterrupt:
     g.cleanup()
 
+g.cleanup()
