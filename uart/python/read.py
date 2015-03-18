@@ -4,10 +4,18 @@ import re
 import RPi.GPIO as gpio
 
 on_regex = re.compile(r'^\s*\b\d{1,2}\b(?:\s*\,?\s*\b\d{1,2}\b)*\s*$')
-avaliable_pins = [18,23,24,25,8,7,12,16,21,26]
+avaliable_pins_r2 = [18,23,24,25,8,7,4,17,27,22,10,9,11]
+avaliable_pins_r3 = [18,23,24,25,8,7,12,16,20,21,4,17,27,22,10,9,11,5,6,13,19,26]
+avaliable_pins = []
 
 def gpio_setup():
   gpio.setmode(gpio.BCM)
+
+  if gpio.RPI_REVISION == 2:
+    avaliable_pins = avaliable_pins_r2
+  else:
+    avaliable_pins = avaliable_pins_r3
+ 
   for pin in avaliable_pins:
     gpio.setup(pin,gpio.OUT)
 
