@@ -20,7 +20,7 @@ def gpio_setup():
 
 def evaluate_arguments(argv):
   if (on_regex.search(argv) is not None):
-    to_turn_on_pins = list(set([x for x in str.replace(",", " ").split(" ") if x != ""]))
+    to_turn_on_pins = list(set([x for x in argv.replace(",", " ").split(" ") if x != ""]))
     print to_turn_on_pins
   else:
     print "Bad aruguments"
@@ -35,8 +35,9 @@ while 1:
     remaining_bytes = port.inWaiting()  # Get the number of characters ready to be read
     data_chunk += port.read(remaining_bytes) # Do the read and combine it with the first character
     evaluate_arguments(data_chunk)
-  except Exception:
+  except Exception, e:
     print "Ups"
+    print str(e)
     pass
 
 gpio.cleanup()
