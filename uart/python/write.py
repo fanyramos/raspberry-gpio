@@ -8,5 +8,4 @@ while 1:
     sleep(0.5)
     port.flushInput()
     port.flushOutput()
-    .
 
