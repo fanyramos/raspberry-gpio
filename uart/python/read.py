@@ -11,7 +11,13 @@ def gpio_setup():
   for pin in avaliable_pins:
     gpio.setup(pin,gpio.OUT)
 
-# def turn_on_all(gpio_pins):
+def turn_on_all(gpio_pins):
+
+  ## Turn off everything
+  for pin in avaliable_pins:
+    gpio.output(pin,gpio.LOW)
+  for pin in gpio_pins:
+    gpio.output(pin.gpio.HIGH)
 
 # def turn_on_all_but(gpio_pins):
 
@@ -22,6 +28,7 @@ def evaluate_arguments(argv):
   if (on_regex.search(argv) is not None):
     to_turn_on_pins = list(set([x for x in argv.replace(",", " ").split(" ") if x != ""]))
     print to_turn_on_pins
+    turn_on_all(to_turn_on_pins)
   else:
     print "Bad aruguments"
 
