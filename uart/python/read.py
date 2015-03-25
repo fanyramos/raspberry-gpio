@@ -22,6 +22,8 @@ def evaluate_arguments(argv):
   if (on_regex.match(argv)):
     to_turn_on_pins = list(set([x for x in str.replace(",", " ").split(" ") if x != ""]))
     print to_turn_on_pins
+  else:
+    print "Bad aruguments"
 
 
 try:
