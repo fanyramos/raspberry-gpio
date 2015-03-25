@@ -26,16 +26,17 @@ def evaluate_arguments(argv):
     print "Bad aruguments"
 
 
-try:
-  port = serial.Serial("/dev/ttyAMA0", baudrate=115200, timeout=None)
-  gpio_setup()
-  while 1:
+port = serial.Serial("/dev/ttyAMA0", baudrate=115200, timeout=None)
+gpio_setup()
+while 1:
+  try:
     data_chunk = port.read()           # Wait forever for anything
     time.sleep(0.1)              # Sleep (or inWaiting() doesn't give the correct value)
     remaining_bytes = port.inWaiting()  # Get the number of characters ready to be read
     data_chunk += port.read(remaining_bytes) # Do the read and combine it with the first character
     evaluate_arguments(data_chunk)
-except Exception:
-  gpio.cleanup()
+  except Exception:
+    print "Ups"
+    pass
 
 gpio.cleanup()
