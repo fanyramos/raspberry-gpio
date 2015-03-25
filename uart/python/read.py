@@ -3,7 +3,7 @@ import time
 import re
 import RPi.GPIO as gpio
 
-on_regex = re.compile("^\s*\b\d{1,2}\b(?:\s*\,?\s*\b\d{1,2}\b)*\s*$")
+on_regex = re.compile(r'^\s*\b\d{1,2}\b(?:\s*\,?\s*\b\d{1,2}\b)*\s*$')
 avaliable_pins = [18,23,24,25,8,7,12,16,21,26]
 
 def gpio_setup():
@@ -19,7 +19,7 @@ def gpio_setup():
 
 
 def evaluate_arguments(argv):
-  if (on_regex.match(argv)):
+  if (on_regex.search(argv) is not None):
     to_turn_on_pins = list(set([x for x in str.replace(",", " ").split(" ") if x != ""]))
     print to_turn_on_pins
   else:
